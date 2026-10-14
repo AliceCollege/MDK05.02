@@ -177,5 +177,46 @@ if(isset($_GET['number4'])){
             }
         }
     }
+} else {
+    echo 'Данные не получены';
+}
+?>
+<h2>Задача 5</h2>
+<form actions="">
+    <p>Введите номер единицы измерения:</p>
+    <input name="numberED">
+    <p>Введите массу M:</p>
+    <input name="number5">
+    <input type="submit" value="Отправить">
+</form>
+<?php
+if(isset($_GET['numberED']) && isset($_GET['number5'])){
+    $ed = $_GET['numberED'];
+    $n = $_GET['number5'];
+    switch ($ed){
+        case 1:
+            echo "$n киллограмм";
+            break;
+        case 2:
+            $n = $n / 1000000;
+            echo "$n киллограмм";
+            break;
+        case 3:
+            $n = $n / 1000;
+            echo "$n киллограмм";
+            break;
+        case 4:
+            $n = $n * 1000;
+            echo "$n киллограмм";
+            break;
+        case 5:
+            $n = $n * 100;
+            echo "$n киллограмм";
+            break;
+        default:
+            echo 'Нет такой еденицы измерения';
+    }
+} else {
+    echo 'Данные не получены';
 }
 ?>
