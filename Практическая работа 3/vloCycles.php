@@ -49,7 +49,7 @@ for($i = 0; $i < 10; $i++){
 </table>
 <h2>Задача 5</h2>
 <?php
-$a = 3;
+$a = 8;
 $b = 5;
 echo "a = $a, b = $b";
 echo '<br>';
@@ -58,7 +58,7 @@ for($i = 0; $i < $b; $i++){
         if($i == 0 ||$i == $b-1 || $j == 0 || $j == $a-1) {
             echo 'a';
         } else {
-            echo 'b';
+            echo 'c';
         }
     }
         echo '<br>';
@@ -78,13 +78,14 @@ for($i = 1; $i <= $n; $i++){
 ?>
 <h2>Задача 7</h2>
 <?php
-$hour = 24;
+$hour = 1;
 $kletki = 1;
 $kol = 1;
-echo "часы = $hour";
+echo "Количество часов - $hour";
 echo '<br>';
 for($i = 1; $i <= $hour; $i++){
     $kletki = $kletki *2;
     $kol += $kletki;
 }
+echo "количество клеток = $kol";
 ?>
