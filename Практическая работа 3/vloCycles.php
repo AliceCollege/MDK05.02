@@ -47,19 +47,21 @@ for($i = 0; $i < 10; $i++){
 }
 ?>
 </table>
-<h2>Задача 5 - ЕЩЁ ПОДУМАТЬ</h2>
+<h2>Задача 5</h2>
 <?php
 $a = 3;
 $b = 5;
 echo "a = $a, b = $b";
 echo '<br>';
-for($i = 0; $i < $a; $i++){
-    echo 'd';
-    for($j = 0; $j < $b-2; $j++){
-        echo 'X';
+for($i = 0; $i < $b; $i++){
+    for($j = 0; $j < $a; $j++){
+        if($i == 0 ||$i == $b-1 || $j == 0 || $j == $a-1) {
+            echo 'a';
+        } else {
+            echo 'b';
+        }
     }
-    echo 'd';
-    echo '<br>';
+        echo '<br>';
 }
 ?>
 <h2>Задача 6</h2>
@@ -72,5 +74,17 @@ for($i = 1; $i <= $n; $i++){
         $dilit = $i;
         echo "$dilit"; 
     }
+}
+?>
+<h2>Задача 7</h2>
+<?php
+$hour = 24;
+$kletki = 1;
+$kol = 1;
+echo "часы = $hour";
+echo '<br>';
+for($i = 1; $i <= $hour; $i++){
+    $kletki = $kletki *2;
+    $kol += $kletki;
 }
 ?>
