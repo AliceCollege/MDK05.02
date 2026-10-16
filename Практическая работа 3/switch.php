@@ -9,6 +9,9 @@
 if(isset($_GET['number'])){
     $n = $_GET['number'];
     switch ($n){
+        case 0:
+            echo '0 - zero';
+            break;
         case 1:
             echo '1 - one';
             break;

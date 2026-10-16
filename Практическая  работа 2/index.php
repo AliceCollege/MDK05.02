@@ -1,16 +1,16 @@
 <h1>Условия  - Практическая 3</h1>
 <h3>Задача 1</h3>
 <?php
-$a = 4;
-$b = 5;
-$d = $a+$b;
-$e = $a*$b;
-if($a < $b ){
-    echo "a= $a, b=$b, res=$d";
-}
-else{
-    echo "a= $a, b=$b, res=$e";
-}
+    $a = 4;
+    $b = 5;
+    $d = $a+$b;
+    $e = $a*$b;
+    if($a < $b ){
+        echo "a= $a, b=$b, res=$d";
+    }
+    else{
+        echo "a= $a, b=$b, res=$e";
+    }
 ?>
 <h3>Задача 2</h3>
 <?php
