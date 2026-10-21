@@ -155,35 +155,34 @@ if(isset($_GET['number3'])){
 <?php
 if(isset($_GET['number4'])){
     $n = $_GET['number4'];
-    if ($n < 0 || $n>99){
-        echo 'Число вне диапозоне 1-99';
-    } else{
-        if ($n >= 11 && $n <= 14){
-            echo "Мне $n лет";;
-        } else {
-            $last = $n % 10;
-            switch ($last){
-                case 1: 
-                    echo "Мне $n год";
-                    break;
-                case 2: 
-                    echo "Мне $n года";
-                    break;
-                case 3: 
-                    echo "Мне $n года";
-                    break;
-                case 4: 
-                    echo "Мне $n года";
-                    break;
-                default:
-                    echo "Мне $n лет";
-            }
-        }
+    
+    switch (true) {
+        case ($n < 0 || $n > 99):
+            echo 'Число вне диапазона 1-99';
+            break;
+            
+        case ($n >= 11 && $n <= 14):
+            echo "Мне $n лет";
+            break;
+            
+        case ($n % 10 == 1):
+            echo "Мне $n год";
+            break;
+            
+        case ($n % 10 == 2 || $n % 10 == 3 || $n % 10 == 4):
+            echo "Мне $n года";
+            break;
+            
+        default:
+            echo "Мне $n лет";
+            break;
     }
+    
 } else {
     echo 'Данные не получены';
 }
 ?>
+
 <h2>Задача 5</h2>
 <form actions="">
     <p>Введите номер единицы измерения:</p>
