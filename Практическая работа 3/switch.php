@@ -155,7 +155,6 @@ if(isset($_GET['number3'])){
 <?php
 if(isset($_GET['number4'])){
     $n = $_GET['number4'];
-    
     switch (true) {
         case ($n < 0 || $n > 99):
             echo 'Число вне диапазона 1-99';
@@ -177,7 +176,6 @@ if(isset($_GET['number4'])){
             echo "Мне $n лет";
             break;
     }
-    
 } else {
     echo 'Данные не получены';
 }
