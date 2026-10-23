@@ -157,7 +157,7 @@ foreach ($numbers as $value){
 ?>
 <h2>Задача 9</h2>
 <?php
-$numbers = [-2,2,1,3,3];
+$numbers = [-2,2,3,3,3];
 $count = 0;
 echo "Исходный массив: ";
 foreach ($numbers as $value){
