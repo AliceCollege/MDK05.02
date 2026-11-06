@@ -178,6 +178,10 @@ $sport = ['Футбол' => [
                 ],
             'Баскетбол' => []
            ];
+$newproducts = ['Starfit' => 'Гимнастический мяч', 'Demix' => 'Обруч гимнастический', 'Indigo'=>'Скакалка гимнастическая', 'Pastorelli'=>'Лента для художественной гимнастики'];
+foreach ($newproducts as $firm => $product) {
+        $sport['Гимнастика'][$firm] = $product;
+}
 $newCategory = 'Бокс';
 $newproductsCat = ['Everlast'=>' Боксёрские перчатки',' Effort'=>'Боксёрский мешок','Hukk'=>'Боксёрский шлем'];
 if (!isset($sport[$newCategory])) {
