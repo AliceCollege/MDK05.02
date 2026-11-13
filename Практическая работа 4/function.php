@@ -130,28 +130,47 @@ echo "Сумма квадратов этих чисел - " . sumOfSquares([1, 2
 <h2>Задание 6</h2>
 <?php 
 function convertToString($arr) {
-    $result = '';
-    $isFirst = true;
-    foreach ($arr as $n) {
-        if (!$isFirst) {
-            $result = $result . ', ';
-        }
-        $isFirst = false;
-        if ((array)$n === $n) {
-            $result = $result . 'array';
+    $result = "";
+    foreach ($arr as $item) {
+        if (isset($item[0])) {
+            $result .= "array ";
         } else {
-            $result = $result . $n;
+            $result .= $item . " ";
         }
     }
     return $result;
 }
-$numbers = [1, 2, [3, 4], 5];
-echo 'Элементы массива - ' . convertToString($numbers); 
+echo "Исходный массив - [1, 2, [3, 4], 5] <br>";
+$data = [1, 2, [3, 4], 5];
+echo convertToString($data);
 ?>
 <h2>Задание 7</h2>
 <?php
-
+function sumStr(...$strings)
+{
+    $result = 0;
+    foreach($strings  as $str) {
+        $result += mb_strlen($str);
+    }
+    return $result;
+}
+echo "Даны строки:<br>Кот <br> Лис <br> Кит <br>";
+echo "Общая длина строк - " . sumStr("Кот", "Лис", "Кит");
 ?>
 <h2>Задание 8</h2>
-<?php
+<?php 
+function convertToStringRecursive($arr) {
+    $result = "";
+    foreach ($arr as $item) {
+        if (isset($item[0])) {
+            $result .= convertToStringRecursive($item);
+        } else {
+            $result .= $item . " ";
+        }
+    }
+    return $result;
+}
+echo "Исходный массив - [1, 2, [3, 4], [5,6,7],8,9,10] <br>";
+$data = [1, 2, [3, 4], [5,6,7],8,9,10];
+echo convertToStringRecursive($data);
 ?>
