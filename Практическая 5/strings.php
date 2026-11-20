@@ -172,7 +172,7 @@ echo "Максимально подряд идущих a - $max <br>";
 ?>
 <h2>Задача 9</h2>
 <?php
-$str ='qq(qwerty)qq';
+$str ='q(qwerty)q';
 echo "Была строка - $str <br> Стала - ";
 $len = strlen($str);
 $start = 0;
@@ -185,7 +185,11 @@ for ($i = 0; $i < $len; $i++){
         $finish = $i;
     }
 }
-for ($j = $start+1; $j < $finish; $j++){
-    echo $str[$j];
+$newStr = "";
+for ($j = 0; $j < $len; $j++) {
+    if ($j < $start || $j > $finish) {
+        $newStr .= $str[$j];
+    }
 }
+echo $newStr;
 ?>
