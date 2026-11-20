@@ -36,7 +36,7 @@ echo "В строке '$str' - $summ слов, до точки";
 <h2>Задача 3</h2>
 <?php
 $str = 'alisa murr wow';
-echo "Дана строка $str" . '<br> Слова, которые начинаются и оканчиваются одной и той же буквой: ';
+echo "Дана строка $str" . '<br> Слова, которые начинаются и оканчиваются одной и той же буквой: <br>';
 $str = $str .' ';
 $len = strlen($str);
 $word = '';
@@ -105,8 +105,87 @@ echo "$summT букв t <br>";
 ?>
 <h2>Задача 6</h2>
 <?php
-function DeleteExcessSpace($str){
-
+echo "Изначально строка выглядила так:'   I   want  go to   home  ' <br> ";
+function DeleteExcessSpace($str) {
+    $newStr = "";
+    $space = 1;
+    for ($i = 0; $i < strlen($str); $i++) {
+        if ($str[$i] != " ") {
+            $newStr .= $str[$i];
+            $space = 0;
+        } elseif ($space == 0) {
+            $newStr .= " ";
+            $space = 1;
+        }
+    }
+    return $newStr;
 }
-DeleteExcessSpace("   I   want  go to   home  ");
+echo DeleteExcessSpace("   I   want  go to   home  ");
+?>
+<h2>Задача 7</h2>
+<?php
+$str = 'alisa murr wow';
+echo "Дана строка - $str <br>";
+$str = $str .' ';
+$len = strlen($str);
+$max = 1000;
+$min = 0;
+$word = '';
+for ($i = 0; $i < $len; $i++) {
+    $bukva = $str[$i];
+    if ($bukva == ' '){
+        if ($word != ''){
+            $P = strlen($word);
+            if ($P > $min) {
+                $min = $P;
+            }
+            if ($P < $max) {
+                $max = $P;
+            }
+            $word = "";
+        }
+    } else {
+        $word .= $bukva;
+    }
+}
+echo "Длина самого длинного слова - $min <br>";
+echo "Длина самого короткого слова - $max";
+?>
+<h2>Задача 8</h2>
+<?php
+$str = 'alisaaa cat maam';
+echo "Дана строка - $str <br>";
+$len = strlen($str);
+$kol = 0;
+$max = 0; 
+for ($i = 0; $i < $len; $i++) {
+    if ($str[$i] == 'a') {
+        $kol++;
+        if ($kol > $max) {
+            $max = $kol;
+        }
+    } else {
+        $kol = 0; 
+    }
+}
+echo "Максимально подряд идущих a - $max <br>";
+?>
+<h2>Задача 9</h2>
+<?php
+$str ='qq(qwerty)qq';
+echo "Была строка - $str <br> Стала - ";
+$len = strlen($str);
+$start = 0;
+$finish = 0;    
+for ($i = 0; $i < $len; $i++){
+    if ($str[$i] == "("){
+        $start = $i;
+    }
+    if ($str[$i] == ")"){
+        $finish = $i;
+    }
+}
+for ($j = $start+1; $j < $finish; $j++){
+    echo $str[$j];
+}
 ?>
