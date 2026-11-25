@@ -1,28 +1,33 @@
 <h1>Практичсекая 5 - строки</h1>
 <h2>Задача 1</h2>
-<form actions="">
-    <p>Введите строку с одной открывающаяся и одной закрывающаяся скобкой:</p>
+<form action="">
+    <p>Введите строку с одной открывающейся и одной закрывающаяся скобкой:</p>
     <input name="str">
     <input type="submit" value="Отправить">
 </form>
 <?php
-if(isset($_GET['str'])){
-    $str = $_GET['str'];
-    echo "Была строка - $str <br> Стала - ";
+function BetweenParentheses($str) {
     $len = strlen($str);
     $start = 0;
-    $finish = 0;    
-    for ($i = 0; $i < $len; $i++){
-        if ($str[$i] == "("){
+    $finish = 0;
+    $result = "";
+    for ($i = 0; $i < $len; $i++) {
+        if ($str[$i] == "(") {
             $start = $i;
         }
-        if ($str[$i] == ")"){
+        if ($str[$i] == ")") {
             $finish = $i;
         }
     }
-    for ($j = $start+1; $j < $finish; $j++){
-        echo $str[$j];
+    for ($j = $start + 1; $j < $finish; $j++) {
+        $result .= $str[$j];
     }
+    return $result;
+}
+if (isset($_GET['str'])) {
+    $str = $_GET['str'];
+    $res = BetweenParentheses($str);
+    echo "Была строка - $str <br> Стала - $res";
 }
 ?>
 <h2>Задача 2</h2>
@@ -34,18 +39,21 @@ if(isset($_GET['str'])){
 <?php
 if(isset($_GET['str'])){
     $str = $_GET['str'];
-    $len = strlen($str);
+    $res = CountWords($str);
+    echo "В строке '$str' - $res слов, до точки";
+}
+function CountWords($str) {
     $summ = 0;
-    for ($i = 0; $i < $len; $i++) {
+    for ($i = 0; $i < strlen($str); $i++) {
         if ($str[$i] == ' ') {
-            $summ += 1;
+        $summ += 1;
         }
         if ($str[$i] == '.') {
-            $summ += 1; 
+         $summ += 1; 
             break;
         }
-    }
-    echo "В строке '$str' - $summ слов, до точки";
+    } 
+    return $summ;
 }
 ?>
 <h2>Задача 3</h2>
@@ -58,6 +66,8 @@ if(isset($_GET['str'])){
 if(isset($_GET['str'])){
     $str = $_GET['str'];
     echo "Дана строка $str" . '<br> Слова, которые начинаются и оканчиваются одной и той же буквой: <br>';
+}
+function researchWordSimilarStartLast($str) {
     $str = $str .' ';
     $len = strlen($str);
     $word = '';
@@ -68,7 +78,7 @@ if(isset($_GET['str'])){
                 $first = $word[0];
                 $last = $word[strlen($word)-1];
                 if ($first == $last){
-                    echo $word . "<br>";
+                    return $word;
                 }
                 $word = "";
             }
@@ -77,6 +87,7 @@ if(isset($_GET['str'])){
         }
     }
 }
+echo researchWordSimilarStartLast($str);
 ?>
 <h2>Задача 4</h2>
 <form actions="">
@@ -85,6 +96,8 @@ if(isset($_GET['str'])){
     <input type="submit" value="Отправить">
 </form>
 <?php
+function differentSymbol($str) {
+}
 if(isset($_GET['str'])){
     $str = $_GET['str'];
     echo "Была строка - $str <br>";
